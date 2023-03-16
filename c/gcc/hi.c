@@ -1,2 +1,4 @@
 #include <stdio.h>
-void hi()
+void hi() {
+  printf("Linux World~!!\n");
+}
