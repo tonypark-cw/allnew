@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd /work
-tar cvzf allnew.tar.gz /work/aws_cloud
+tar cvzf allnew.tar.gz /allnew
 mv allnew.tar.gz ~
