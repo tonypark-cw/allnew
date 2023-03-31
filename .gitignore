@@ -1,8 +1,14 @@
 # .gitignore
+.ftpconfig
+
+##c
 c/**/a.out
 c/**/hello
 c/**/*.o
 
-.ftpconfig
-
+## java
 java/*.class
+
+## scala
+scala/**/project
+scala/**/target
