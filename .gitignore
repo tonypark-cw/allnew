@@ -15,3 +15,6 @@ scala/**/target
 
 ##maven
 maven/target
+
+##nodejs
+node/**/node_modules
