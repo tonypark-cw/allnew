@@ -1,0 +1,2 @@
+use test
+db.food.find().pretty()
