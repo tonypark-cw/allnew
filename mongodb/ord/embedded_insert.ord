@@ -1,0 +1,29 @@
+use test
+
+db.ord.drop()
+
+db.ord.insert(
+    {
+        ordid:"2023-03-03",
+        customer_name:"woonam",
+        emp_name:"mage",
+        total:"43944000",
+        payment_type:"credit",
+        order_filled:"y",
+        item_id:[{
+            item_id:"1",
+            product_name:"bunny",
+            item_price:"134",
+            quantity:"500",
+            price:"67500"
+        },{
+            item_id:"2",
+            product_name:"mac",
+            item_price:"990",
+            quantity:"6",
+            price:"1699000"
+        }]
+    }
+)
+
+db.ord.find().pretty()
