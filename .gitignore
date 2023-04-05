@@ -18,6 +18,7 @@ maven/target
 
 ##nodejs
 node/**/node_modules
+node/**/.env
 
 ##python
 python/**/.venv
@@ -27,4 +28,3 @@ python/**/__pycache__
 mongodb/**/*.json
 mongodb/*.json
 
-node/atlas/*.js

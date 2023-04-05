@@ -1,0 +1,10 @@
+use test
+
+db.employees.drop()
+
+db.employees.insert({_id:"7839", name:"KING", job:"PRESIDENT"})
+db.employees.insert({_id:"7782", name:"CLARK", job:"ANALYSIST", parent:"7839"})
+db.employees.insert({_id:"7984", name:"MILLER", job:"CLERK", ancestor:"7839", parent:"7782"})
+
+db.employees.find({ancestor:"7839"})
+db.employees.find({parent:"7839"})

@@ -1,0 +1,16 @@
+use test
+
+db.category.drop()
+db.product.drop()
+
+db.category.insert({"cname":"Laptop", "Pname1":"Asus EP121 M50"})
+db.category.insert({"cname":"Tablet", "Pname1":"Asus EP121 M50", "Pname2":"iPad Pro"})
+db.category.insert({"cname":"SlatePC", "Pname1":"Asus EP121 M50", "Pname2":"Galaxy Pad 7"})
+
+db.category.find()
+
+
+db.product.insert({"pname":"Asus EP121", "Cname1":"Laptop", "Cname2":"Tablet", "Cname3":"SlatePC"})
+db.product.insert({"pname":"Galaxy Pad 7", "Cname1":"SlatePC"})
+db.product.insert({"pname":"iPad Pro", "Cname1":"Tablet"})
+db.product.find({},{_id:0})
