@@ -1,6 +1,9 @@
 # .gitignore
 .ftpconfig
 
+# environment
+.env
+
 ##c
 c/**/a.out
 c/**/hello
@@ -18,7 +21,7 @@ maven/target
 
 ##nodejs
 node/**/node_modules
-node/**/.env
+
 
 ##python
 python/**/.venv

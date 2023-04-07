@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '.env' });
+require('dotenv').config({ path: './../../.env' });
 
 var axios = require('axios');
 var data = JSON.stringify({
