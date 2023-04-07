@@ -1,0 +1,203 @@
+Day-25
+
+### nodejs for oracle Database
+
+# yum -y update
+
+# cd /etc/yum.repos.d/
+
+# rm -rf sbt-rpm.repo
+
+# yum -y update
+
+
+## oracle-instantclient install
+
+# mkdir -p /opt/oracle
+
+# cd /opt/oracle
+
+# wget https://download.oracle.com/otn_software/linux/instantclient/instantclient-basic-linuxx64.zip
+
+# unzip instantclient-basic-linuxx64.zip
+
+# rm -rf instantclient-basic-linuxx64.zip
+
+# sh -c "echo /opt/oracle/instantclient_21_9 > /etc/ld.so.conf.d/oracle-instantclient.conf"
+
+# ldconfig
+
+# ls /etc/ld.so.conf.d/
+
+# vi /etc/profile
+
+     94 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/bin:/opt/oracle/instantclient_21_9
+
+# source /etc/profile
+
+# cd /allnew/oracle
+
+# mkdir node
+
+
+## .gitignore
+….
+
+## oracle
+oracle/node/dbConfig.js
+oracle/node/node_modules
+oracle/node/package-lock.json
+
+
+## dbConfig.js
+
+/* oracle Database Info */
+module.exports = {
+    user: process.env.NODE_ORACLEDB_USER || "hr",
+    password: process.env.NODE_ORACLEDB_PASSWOR || "1234",
+    connectString: process.env.NODE_ORACLEDB_CONNECTIONSTRING || "192.168.1.200:1521/xe"
+}
+
+
+## app.js
+
+var oracledb = require('oracledb');
+var dbConfig = require('./dbConfig');
+
+oracledb.getConnection(
+    {
+        user: dbConfig.user,
+        password: dbConfig.password,
+        connectString: dbConfig.connectString
+    },
+    function (err, connection) {
+        if (err) {
+            console.error(err.message);
+            return;
+        }
+        connection.execute(
+            "SELECT * FROM USERTBL",
+            function (err, result) {
+                if (err) {
+                    console.err(err.message);
+                    doRelease(connection);
+                    return;
+                }
+                console.log(result.metaData);
+                console.log(result.rows);
+                doRelease(connection);
+            }
+        );
+    }
+);
+
+function doRelease(connection) {
+    connection.release(
+        function (err) {
+            if (err) {
+                console.error(err.message);
+            }
+        }
+    );
+}
+
+
+# lsnrctl start
+
+# lsnrctl start
+
+# npm init -y
+
+# npm install oracledb
+
+# node app.js
+
+
+# cp app.js web.js
+
+
+## web.js
+
+var oracledb = require('oracledb');
+var dbConfig = require('./dbConfig');
+var express = require('express');
+var path = require('path');
+
+var app = express();
+
+app.set('port', process.env.PORT || 3000);
+
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+oracledb.autoCommit = true;
+
+app.get('/', (req, res) => {
+    res.send('Web Server started~!!')
+})
+
+app.get('/dbTestSelect', function (req, res) {
+    oracledb.getConnection({
+        user:dbConfig.user,
+        password: dbConfig.password,
+        connectString:dbConfig.connectString
+    },
+    function(err, connection) {
+        if (err) {
+            console.error(err.message);
+            return;
+        }
+        let query = 'select * from usertbl';
+
+        connection.execute(query, [], function(err,result) {
+            if (err) {
+                console.error(err.message);
+                doRelease(connection);
+                return;
+            }
+            console.log(result.rows);
+            doRelease(connection, result.rows);
+        });
+    });
+    
+    function doRelease(connection, rowList) {
+        connection.release(function (err) {
+            if (err) {
+                console.error(err.message);
+            }
+            console.log('list size : ' + rowList.length);
+            res.send(rowList);
+        })
+    }
+})
+
+app.all('*', function (req, res) {
+    res.status(404).send('<h1>ERROR - Page is not found.</h1>');
+});
+
+app.listen(app.get('port'), function () {
+    console.log("Express server listening on port " + app.get('port'));
+})
+
+
+# npm install -g nodemon
+
+# npm install express path body-parser 
+
+# firewall-cmd --add-port=3000/tcp
+success
+
+# firewall-cmd --add-port=3000/udp
+success
+
+# nodemon web.js
+
+
+
+
+
+
+
+
