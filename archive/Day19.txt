@@ -30,7 +30,7 @@ SELECT EXTRACT(YEAR FROM DATE '2023-01-01'), EXTRACT(DAY FROM SYSDATE) FROM DUAL
 2023	30
 
 YEAR
-MONTH DAY  HOUR MINUTE SECOND
+MONTHDAY HOURMINUTESECOND
 
 SELECT LAST_DAY('2023-02-01') FROM DUAL ;
 2023-02-28 00:00:00.000
@@ -160,9 +160,9 @@ SELECT * FROM MOVIETBL m ;
 
 ## your host computer..
 
-# scp *.mp4 root@192.168.1.200:/root/oracle
+# scp *.mp4 root@192.168.1.189:/root/oracle
 
-# scp *.txt root@192.168.1.200:/root/oracle
+# scp *.txt root@192.168.1.189:/root/oracle
 
 # vi movieData.txt
       1 001,쉰들러 리스트,스티븐 스필버그,리암 니슨,001.txt,001.mp4
@@ -707,5 +707,3 @@ END;
 # git push
 
 # shutdown -h now
-
-
