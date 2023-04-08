@@ -42,7 +42,7 @@ select userid as "사용자명", sum(amount) as "총 구매수량" from buytbl g
 select userid as "사용자명", sum(amount * price) as "총 구매액" from buytbl group by userid;
 
 AVG()
-MIN() MAX()
+MIN()MAX()
 COUNT()
 COUNT(DISTICNT) 
 STEDV() 표준편차
@@ -470,9 +470,3 @@ SELECT TRIM('    이것이    '), TRIM(BOTH '' FROM 'ㅋㅋㅋㅋ재밌어요. �
 
 SELECT REGEXP_COUNT('이것이 오라클이다','이') FROM DUAL ; 
 3
-
-
-
-
-
-
