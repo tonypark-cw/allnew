@@ -211,7 +211,7 @@ Web hard, anonymous ftp
 37
 
 
-# ssh ubuntu@192.168.1.12
+# ssh ubuntu@192.168.1.9
 
 $ touch a.mp3 b.mp3 c.mp3 d.mp3 e.mp3
 
