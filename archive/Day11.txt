@@ -49,7 +49,7 @@ Host ubuntu
 
 ## Your Host computer…
 
-# scp jdk-8u361-linux-x64.tar.gz root@192.168.1.12:/tmp
+# scp jdk-8u361-linux-x64.tar.gz root@192.168.1.9:/tmp
 
 ## Ubuntu / Centos….
 
