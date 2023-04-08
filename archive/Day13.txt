@@ -965,4 +965,3 @@ ftp> bye
 
 220 (vsFTPd 3.0.3)
 quit
-
