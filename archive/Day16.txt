@@ -94,7 +94,7 @@ deb http://kr.archive.ubuntu.com/ubuntu/ jammy main restricted
 
 # ls
 
-http://192.168.1.134/
+http://192.168.1.110/
 
 
 
@@ -131,7 +131,7 @@ https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
 
 ## scp 이용
 
-# scp oracle-xe-11.2.0-1.0.x86_64.rpm.zip root@192.168.1.134:/root
+# scp oracle-xe-11.2.0-1.0.x86_64.rpm.zip root@192.168.1.110:/root
 
 # cd 
 
@@ -183,7 +183,7 @@ Confirm the password:1234
 
 # netstat -ntlp
 
-http://192.168.1.134:8080/apex
+http://192.168.1.110:8080/apex
 
 Workspace : internal
 
@@ -359,7 +359,3 @@ where membername='연아';
 select * from membertbl;
 
 select * from deletedmembertbl;
-
-
-
-
