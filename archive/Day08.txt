@@ -604,6 +604,3 @@ Superblock, Kernel -> DISK
 # last
 
 # systemctl isolate poweroff
-
-
-
