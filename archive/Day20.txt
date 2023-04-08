@@ -389,7 +389,7 @@ app.listen(8000, function () {
 
 # node hello.js 
 
-http://192.168.1.12:8000/
+http://192.168.1.9:8000/
 
 ^c
 
@@ -443,10 +443,10 @@ run(host='0.0.0.0', port=3000, threaded=True)
 
 # python hello.py 
 
-http://192.168.1.12:3000/
+http://192.168.1.9:3000/
 Hello World
 
-http://192.168.1.12:3000/Python
+http://192.168.1.9:3000/Python
 Hello Python
 
 ^c
@@ -617,5 +617,3 @@ bye
 # shutdown -h now
 
 우분투 내보내기……..
-
-
