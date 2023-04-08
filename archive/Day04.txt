@@ -11,7 +11,7 @@ Day-04
 
 # rm -rf *
 
-# git clone http://github.com/impelfin/allnew
+# git clone http://github.com/tonypark-cw/allnew
 
 # cd allnew
 
@@ -19,11 +19,11 @@ Day-04
 
 # git config --global user.name 
 
-# git config --global user.name "impelfin"
+# git config --global user.name "tonypark-cw"
 
 # git config --global user.name
 
-# git config --global user.email impelfin@gmail.com
+# git config --global user.email qkrcksdna@naver.com
 
 # git config --global user.email
 
@@ -35,10 +35,10 @@ Day-04
 
 # git commit -m "myconfig"
 
-# git remote add origin https://github.com/impelfin/allnew
+# git remote add origin https://github.com/tonypark-cw/allnew
 
 # git push
-Username : impelfin
+Username : tonypark-cw
 Password : 
 
 ————————————————
@@ -684,7 +684,3 @@ banner 뜨는지 확인
 # source ~/.bashrc
 
 # . ~/.bashrc
-
-
-
-

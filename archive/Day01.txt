@@ -198,15 +198,3 @@ disable-user-list=true
 root - 1234
 
 위처럼 입력해서 root로 로그인 합니다.
-
-
-
-
-
-
-
-
-
-
-
-

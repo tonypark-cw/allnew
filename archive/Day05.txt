@@ -420,8 +420,3 @@ ls -al / > /work/result
 # cd libtinfo5
 
 # ls
-
-
-
-
-
