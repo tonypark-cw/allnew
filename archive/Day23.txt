@@ -281,9 +281,9 @@ RAM size를 8192로 변경
 
 Ubuntu 서버를 복제
 
-	0.	config : 192.168.1.84:27019
-	0.	router : 192.168.1.84:27017
-	0.	shard : 192.168.1.84:27018
+	0.	config : 192.168.1.83:27019
+	0.	router : 192.168.1.83:27017
+	0.	shard : 192.168.1.83:27018
 
 ## host computer…..
 
@@ -292,7 +292,7 @@ Ubuntu 서버를 복제
 # vi .ssh/config
 
   11 Host shard
-  12   HostName 192.168.1.84
+  12   HostName 192.168.1.83
   13   User root
 
 
@@ -345,7 +345,7 @@ Ubuntu 서버를 복제
      12
      13 net:
      14   port: 27019
-     15   bindIp: 192.168.1.84
+     15   bindIp: 192.168.1.83
      16
      17 processManagement:
      18   timeZoneInfo: /usr/share/zoneinfo
@@ -361,9 +361,9 @@ Ubuntu 서버를 복제
 # tail -100 data/logs/configsvr.log
 
 # netstat -nltp
-tcp        0      0 192.168.1.84:27019      0.0.0.0:*               LISTEN      4291/mongod
+tcp        0      0 192.168.1.83:27019      0.0.0.0:*               LISTEN      4291/mongod
 
-# mongo 192.168.1.84:27019
+# mongo 192.168.1.83:27019
 
 > rs.initiate()
 
@@ -389,18 +389,18 @@ configReplSet:PRIMARY> exit
       7
       8 net:
       9   port: 27017
-     10   bindIp: 192.168.1.84
+     10   bindIp: 192.168.1.83
      11
      12 sharding:
-     13   configDB: ConfigReplSet/192.168.1.84:27019
+     13   configDB: ConfigReplSet/192.168.1.83:27019
 
 # mongos --config /shard/mongodRouter.conf &
 
 # netstat -ntlp
-tcp        0      0 192.168.1.84:27019      0.0.0.0:*               LISTEN      4291/mongod
-tcp        0      0 192.168.1.84:27017      0.0.0.0:*               LISTEN      4260/mongos
+tcp        0      0 192.168.1.83:27019      0.0.0.0:*               LISTEN      4291/mongod
+tcp        0      0 192.168.1.83:27017      0.0.0.0:*               LISTEN      4260/mongos
 
-# mongo 192.168.1.84:27017
+# mongo 192.168.1.83:27017
 
 mongos> exit
 
@@ -429,7 +429,7 @@ mongos> exit
      12
      13 net:
      14   port: 27021
-     15   bindIp: 192.168.1.84
+     15   bindIp: 192.168.1.83
      16
      17 processManagement:
      18   timeZoneInfo: /usr/share/zoneinfo
@@ -445,11 +445,11 @@ mongos> exit
 # tail -100 data/logs/shard1.log
 
 # netstat -ntlp
-tcp        0      0 192.168.1.84:27021      0.0.0.0:*               LISTEN      4509/mongod
-tcp        0      0 192.168.1.84:27019      0.0.0.0:*               LISTEN      4291/mongod
-tcp        0      0 192.168.1.84:27017      0.0.0.0:*               LISTEN      4260/mongos
+tcp        0      0 192.168.1.83:27021      0.0.0.0:*               LISTEN      4509/mongod
+tcp        0      0 192.168.1.83:27019      0.0.0.0:*               LISTEN      4291/mongod
+tcp        0      0 192.168.1.83:27017      0.0.0.0:*               LISTEN      4260/mongos
 
-# mongo 192.168.1.84:27021
+# mongo 192.168.1.83:27021
 
 > rs.initiate()
 
@@ -485,7 +485,7 @@ ShardReplSet:PRIMARY> exit
      12
      13 net:
      14   port: 27022
-     15   bindIp: 192.168.1.84
+     15   bindIp: 192.168.1.83
      16
      17 processManagement:
      18   timeZoneInfo: /usr/share/zoneinfo
@@ -501,12 +501,12 @@ ShardReplSet:PRIMARY> exit
 # tail -100 data/logs/shard2.log
 
 # netstat -ntlp
-tcp        0      0 192.168.1.84:27022      0.0.0.0:*               LISTEN      4612/mongod
-tcp        0      0 192.168.1.84:27021      0.0.0.0:*               LISTEN      4509/mongod
-tcp        0      0 192.168.1.84:27019      0.0.0.0:*               LISTEN      4291/mongod
-tcp        0      0 192.168.1.84:27017      0.0.0.0:*               LISTEN      4260/mongos
+tcp        0      0 192.168.1.83:27022      0.0.0.0:*               LISTEN      4612/mongod
+tcp        0      0 192.168.1.83:27021      0.0.0.0:*               LISTEN      4509/mongod
+tcp        0      0 192.168.1.83:27019      0.0.0.0:*               LISTEN      4291/mongod
+tcp        0      0 192.168.1.83:27017      0.0.0.0:*               LISTEN      4260/mongos
 
-# mongo 192.168.1.84:27022
+# mongo 192.168.1.83:27022
 
 > rs.initiate()
 
@@ -518,11 +518,11 @@ ShardReplSet:PRIMARY> exit
 
 —————————————————————————————
 
-# mongo 192.168.1.84:27017
+# mongo 192.168.1.83:27017
 
-mongos> sh.addShard("ShardReplSet/192.168.1.84:27021")
+mongos> sh.addShard("ShardReplSet/192.168.1.83:27021")
 
-mongos> sh.addShard("ShardReplSet/192.168.1.84:27022")
+mongos> sh.addShard("ShardReplSet/192.168.1.83:27022")
 
 mongos> use persons
 
@@ -722,8 +722,8 @@ exit
 
 ## rs.addShard
 
-sh.addShard("ShardReplSet/192.168.1.43:27021")
-sh.addShard("ShardReplSet/192.168.1.43:27022")
+sh.addShard("ShardReplSet/192.168.1.83:27021")
+sh.addShard("ShardReplSet/192.168.1.83:27022")
 
 exit
 
