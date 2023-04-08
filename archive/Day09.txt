@@ -345,9 +345,6 @@ $ source .bashrc
 $ exit
 
 
-
-
-
 다시 Centos 종료 후 가상 시스템 내보내기
 
 CentOS-first.ova로 저장
