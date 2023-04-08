@@ -37,7 +37,7 @@ Verify:
 호스트 컴퓨터에서 
 
 VNC Viewer 다운 받아서..
-192.168.1.134:5901 로 접속
+192.168.1.110:5901 로 접속
 
 접속 암호 입력하고…..접속하시면 성공!!
 
@@ -536,7 +536,7 @@ $ vi index.html
   8 </body>
   9 </html>
 
-http://192.168.1.134/~centos
+http://192.168.1.110/~centos
 
 # cd ..
 
@@ -573,14 +573,14 @@ logout
 
 ## your browser…
 
-http://192.168.1.134/phpinfo.php
+http://192.168.1.110/phpinfo.php
 
 https://sir.kr/
 
 
 ## Your host…
 
-# scp gnuboard5.4.5.5.tar.gz root@192.168.1.134:/var/www/html
+# scp gnuboard5.4.5.5.tar.gz root@192.168.1.110:/var/www/html
 
 
 ## centos….
@@ -605,7 +605,7 @@ MariaDB [(none)]> \q
 
 ## your browser…
 
-http://192.168.1.134/gnuboard5
+http://192.168.1.110/gnuboard5
 
 
 
@@ -619,7 +619,7 @@ bbs0 / free board
 linuxboard
 free board 선택
 
-http://192.168.1.134/gnuboard5/bbs/board.php?bo_table=free
+http://192.168.1.110/gnuboard5/bbs/board.php?bo_table=free
 
 # cd ..
 
@@ -631,7 +631,7 @@ http://192.168.1.134/gnuboard5/bbs/board.php?bo_table=free
       4 </head>
       5 <body>
       6         <H1>Web Server Page~!!</H1>
-      7         <a href=http://192.168.1.134/gnuboard5/bbs/board.php?bo_table=free>Free Board</a>
+      7         <a href=http://192.168.1.110/gnuboard5/bbs/board.php?bo_table=free>Free Board</a>
       8 </body>
       9 </html>
 
