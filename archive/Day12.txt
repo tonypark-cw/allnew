@@ -189,7 +189,7 @@ users:x:100:
 # passwd -d user1
 
 
-KILL 
+KILL
 1 - HUP
 2 - INT
 3 - QUIT
@@ -624,12 +624,3 @@ root
 
 # id
 uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
-
-
-
-
-
-
-
-
-
