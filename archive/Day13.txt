@@ -619,7 +619,7 @@ centos
 
 # ifconfig 
 
-# ifconfig enp0s3 192.168.1.134 netmask 255.255.255.0 broadcast 192.168.0.255
+# ifconfig enp0s3 192.168.1.110 netmask 255.255.255.0 broadcast 192.168.0.255
 
 # ifconfig enp0s3 up
 
@@ -842,7 +842,7 @@ $ exit
 
 # yum -y install ftp
 
-$ ftp 192.168.1.134
+$ ftp 192.168.1.110
 Name (192.168.0.32:user1): centos
 
 Password: 1234
@@ -878,9 +878,9 @@ $ ls
 
 [centos@centos ~]$ ll
 
-[user1@centos ~]$ ftp 192.168.1.134
+[user1@centos ~]$ ftp 192.168.1.110
 
-Name (192.168.1.134:user1): centos
+Name (192.168.1.110:user1): centos
 Password: 1234
 
 ftp> bin
