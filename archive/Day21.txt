@@ -344,7 +344,7 @@ db.things.find()
 
 ## your host computer…
 
-# scp *.json root@192.168.1.12:/allnew/mongodb
+# scp *.json root@192.168.1.9:/allnew/mongodb
 
 ## ubuntu…
 
