@@ -16,12 +16,12 @@ Day-11
 # vi .ssh/config
 # Virtualbox CentOS
  Host centos
- 	HostName 192.168.1.134
+ 	HostName 192.168.1.110
  	User root
 
 # Virtualbox Ubuntu
 Host ubuntu
-	HostName 192.168.1.12
+	HostName 192.168.1.9
 	User root
 
 # ssh centos
@@ -388,7 +388,7 @@ Input : 89
 B
 Thank you~ bye!
 
- ## case.sh
+## case.sh
       1 #!/bin/bash
       2
       3 case "$1" in
@@ -601,6 +601,3 @@ This program is have to one parameter~!!
 7
 8
 9
-
-
-
