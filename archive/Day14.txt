@@ -634,8 +634,3 @@ http://192.168.1.110/gnuboard5/bbs/board.php?bo_table=free
       7         <a href=http://192.168.1.110/gnuboard5/bbs/board.php?bo_table=free>Free Board</a>
       8 </body>
       9 </html>
-
-
-
-
-
