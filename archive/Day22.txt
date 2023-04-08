@@ -740,7 +740,3 @@ axios(config)
 
 # node atlas.js 
 {"document":{"id":"1","name":"Moon"}}
-
-
-
-
