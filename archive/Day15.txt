@@ -28,9 +28,9 @@ Day-15
 
 # firewall-cmd --add-port=111/udp
 
-# showmount -e 192.168.1.152
+# showmount -e 192.168.1.189
 
-# rpcinfo -p 192.168.1.152
+# rpcinfo -p 192.168.1.189
 
 —————————————————————
 # setenforce 0
@@ -43,7 +43,7 @@ Day-15
 
 # chmod 1777 pub
 
-# mount -t nfs 192.168.1.152:/work/share /work/pub
+# mount -t nfs 192.168.1.189:/work/share /work/pub
 
 # df -T
 
@@ -254,7 +254,7 @@ mysql> exit
 
 워크벤치 실행 후 MySQL Connections -> 
 connection name : Ubuntu
-Hostname : 192.168.1.36
+Hostname : 192.168.1.189
 Username : mysql
 Password : Store in Keychain 클릭 1234
 Test Connection 클릭 -> ok
@@ -393,7 +393,7 @@ work bench 메뉴 -> server -> data export -> include create  schema…
 
 # cd /var/www/html
 
-http://192.168.1.12/
+http://192.168.1.9/
 
 # cp index.html index.html.old
 
@@ -438,7 +438,7 @@ $ cp /var/www/html/index.html .
 
 $ exit
 
-http://192.168.1.12/~ubuntu
+http://192.168.1.9/~ubuntu
 
 # cd /etc/apache2
 
@@ -509,7 +509,7 @@ To activate the new configuration, you need to run:
 
 # systemctl restart nginx
 
-http://192.168.1.12:8100/
+http://192.168.1.9:8100/
 
 
 ### SWAP file
