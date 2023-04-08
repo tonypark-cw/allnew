@@ -1,6 +1,9 @@
 # .gitignore
 .ftpconfig
 
+# .vscode
+.vscode/
+
 # environment
 .env
 
