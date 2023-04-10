@@ -39,3 +39,12 @@ mongodb/backup
 oracle/node/dbConfig.js
 oracle/node/node_modules
 oracle/node/package-lock.json
+
+## html
+html/*/*
+!html/chapter01/*
+!html/chapter02/*
+!html/chapter03/*
+
+html/**/media/
+
