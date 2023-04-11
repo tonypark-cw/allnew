@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>상품 테이블</title>
+   </head>
+   <body>
+      <h3>상품 테이블</h3>
+
+      <hr />
+      <form method="post" name="productForm" target="targetURL">
+         <p>
+            <span style="background-color: aqua">PRODUCT ID</span>
+            <input type="text" size="23" name="prodid" placeholder="ex) 20230301001" />
+         </p>
+         <p>
+            <span style="background-color: aqua">PRODUCT NAME</span
+            ><input type="text" size="23" name="prodname" placeholder="ex) 음파반지" />
+         </p>
+         <p>
+            <span style="background-color: aqua">PRODUCT PRICE</span
+            ><input type="number" size="23" name="prodprice" placeholder="ex) 45000" />
+         </p>
+         <p>
+            <span style="background-color: aqua">PRODUCT ARTIST</span
+            ><input type="text" size="23" name="prodarti" placeholder="ex) IU" />
+         </p>
+
+         <input type="button" value="SELECT PRODUCT" onclick="document.productList.location.href='./select'" />
+
+         <input
+            type="button"
+            value="SEARCH PRODUCT"
+            onclick="document.targetURL.location.href='./selectQuery?prodid='+document.productForm.prodid.value"
+         />
+
+         <input type="submit" value="INSERT PRODUCT" formaction="/insert" />
+
+         <input type="submit" value="UPDATE PRODUCT" formaction="/update" />
+
+         <input type="submit" value="DELETE PRODUCT" formaction="/delete" />
+      </form>
+      <hr />
+      <div style="color: brown; font-weight: 700">상품ID - 상품명 - 상품가격 - 아티스트</div>
+      <iframe src="/select" name="productList" frameborder="0" width="40%" height="40%"></iframe>
+      <div style="color: brown; font-weight: 700">결과</div>
+      <iframe src="/select" name="targetURL" frameborder="0" width="40%" height="40%"></iframe>
+   </body>
+</html>
