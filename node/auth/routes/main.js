@@ -23,7 +23,7 @@ app.get('/hello', (req, res) => {
 });
 
 app.get('/select', (req, res) => {
-   const result = connection.query('select * from user;');
+   const result = connection.query('select userid from user;');
    console.log(result);
    res.send(result);
 });
@@ -48,6 +48,30 @@ app.post('/selectQuery', (req, res) => {
    const result = connection.query('select * from user where userid=?;', [userid]);
    console.log(result);
    res.send(result);
+});
+
+app.post('/insert', (req, res) => {
+   const { userid, passwd } = req.body;
+   //    console.log(typeof userid, typeof passwd);
+   const result = connection.query('insert into user values (?, ?);', [userid, passwd]);
+   //    const list = connection.query('select userid from user;');
+   //    const list = connection.query('select * from user where userid=?;', [userid]);
+   res.redirect('/selectQuery?userid=' + userid);
+   //    res.send(result);
+});
+
+app.post('/update', (req, res) => {
+   const { userid, passwd } = req.body;
+   //    console.log(typeof userid, typeof passwd);
+   const result = connection.query('update user set passwd=? where userid=? ;', [passwd, userid]);
+   res.redirect('/selectQuery?userid=' + userid);
+});
+
+app.post('/delete', (req, res) => {
+   const userid = req.body.userid;
+   const result = connection.query('delete from user where userid=?;', [userid]);
+   console.log(result);
+   res.redirect('/select');
 });
 
 module.exports = app;
