@@ -45,6 +45,8 @@ html/*/*
 !html/chapter01/*
 !html/chapter02/*
 !html/chapter03/*
+!html/mysql/*
+html/**/node_modules
 
 html/**/media/
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <title>mysql - st_info</title>
+   </head>
+   <body>
+      <h3>mysql - st_info</h3>
+      <hr />
+      <form  action="/" method="get" name="info">
+         ST_ID : <input type="text" id="ST_ID" name="ST_ID" /><br />
+         NAME : <input type="text"  id="NAME"  name="NAME"/><br />
+         DEPT : <input type="text"  id="DEPT"  name="DEPT"/>
+         <br />
+         <input type="button" value="GET/Hello" onclick="document.targetURL.location.href='/Hello'" />
+         <input type="button" value="SELECT st_info" onclick="document.targetURL.location.href='/select'" />
+         <!-- <input
+            type="button"
+            value="INSERT st_info"
+            onclick="document.targetURL.location.href='/insert?ST_ID='+document.querySelector(`#ST_ID`).value+'&NAME='+document.querySelector(`#NAME`).value+'&DEPT='+document.querySelector(`#DEPT`).value"
+         >
+         </input> -->
+         <input
+            type="button"
+            value="INSERT st_info"
+            onclick="document.targetURL.location.href='/insert?ST_ID='+document.info.ST_ID.value+'&NAME='+document.info.NAME.value+'&DEPT='+document.info.DEPT.value"
+         >
+         </input>
+
+      </form>
+      <hr />
+      <iframe
+         src="192.168.1.18:8000/Hello"
+         name="targetURL"
+         width="700"
+         height="400"
+         class="iframe-preview center"
+         frameborder="1"
+      ></iframe>
+   </body>
+</html>
