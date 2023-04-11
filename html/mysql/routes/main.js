@@ -33,7 +33,7 @@ app.get('/select', (req, res) => {
 
 // insert data into st_info table
 app.get('/insert', (req, res) => {
-   // console.log(req.query);
+   console.log(req.query);
    const { ST_ID, NAME, DEPT } = req.query;
    console.log(ST_ID, NAME, DEPT);
    const result = connection.query('INSERT INTO st_info values (?, ?, ?)', [ST_ID, NAME, DEPT]);
