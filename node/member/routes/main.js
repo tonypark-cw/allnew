@@ -76,6 +76,7 @@ app.post('/register', (req, res) => {
       } else {
          result = connection.query('insert into user values (?, ?)', [id, pw]);
          console.log(result);
+
          res.redirect('/');
       }
    }
@@ -118,6 +119,7 @@ app.get('/selectQuery', (req, res) => {
             Type Proper 'USERID'
          </div>
       `);
+      res.write('<script>alert("USER ID 입력해주세요.");</script>');
    } else if (result.length > 0) {
       let temp = '';
       for (let i = 0; i < result.length; i++) {
@@ -140,8 +142,9 @@ app.get('/selectQuery', (req, res) => {
    } else {
       resultPage = makeResultTemplate(`
          <div class="empty">
-            Any Data Doesn't Exist.
+            Can't find Any Data.
          </div> `);
+      res.write('<script>alert("조회 결과가 없어요.");</script>');
    }
    res.end(resultPage);
 });
@@ -155,23 +158,38 @@ app.post('/selectQuery', (req, res) => {
 
 app.post('/insert', (req, res) => {
    const { userid, pw } = req.body;
-   const result = connection.query('insert into user values (?, ?)', [userid, pw]);
-   console.log(result);
-   res.redirect('/selectQuery?userid=' + req.body.userid);
+   if (userid == '') {
+      res.write("<script>alert('USER ID 입력해주세요.');</script>");
+   } else {
+      res.write('<script>confirm("유저를 추가할까요?");</script>');
+      console.log('추가');
+      const result = connection.query('insert into user values (?, ?)', [userid, pw]);
+      res.write('<script>window.location="./select"</script>');
+   }
 });
 
 app.post('/update', (req, res) => {
    const { userid, pw } = req.body;
-   const result = connection.query('update user set passwd=? where userid=?', [pw, userid]);
-   console.log(result);
-   res.redirect('/selectQuery?userid=' + req.body.userid);
+   if (userid) {
+      res.write('<script>confirm("유저를 수정할까요?");</script>');
+      const result = connection.query('update user set passwd=? where userid=?', [pw, userid]);
+      // res.redirect('/selectQuery?userid=' + req.body.userid);
+      res.write('<script>window.location="./select"</script>');
+   } else {
+      res.write('<script>alert("USER ID 입력해주세요.");</script>');
+   }
 });
 
 app.post('/delete', (req, res) => {
    const userid = req.body.userid;
-   const result = connection.query('delete from user where userid=?', [userid]);
-   console.log(result);
-   res.redirect('/select');
+   if (userid) {
+      res.write('<script>confirm("유저를 삭제할까요?");</script>');
+      const result = connection.query('delete from user where userid=?', [userid]);
+      console.log(result);
+      res.write('<script>window.location="./select"</script>');
+   } else {
+      res.write('<script>alert("USER ID 입력해주세요.");</script>');
+   }
 });
 
 module.exports = app;
