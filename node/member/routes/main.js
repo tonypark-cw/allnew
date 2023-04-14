@@ -9,7 +9,7 @@ function makeResultTemplate(body) {
    <!doctype html>
    <html>
    <head>
-      <title>Error</title>
+      <title>BlockPage</title>
       <meta charset="utf-8">
       <link type="text/css" rel="stylesheet" href="css/table.css">
    </head>
@@ -39,7 +39,7 @@ app.get('/hello', (req, res) => {
 });
 
 app.get('/thanks', (req, res) => {
-   res.send('방문해주셔서 압도적 감사');
+   res.send('Welcom 😊');
 });
 
 // login
@@ -58,11 +58,7 @@ app.post('/login', (req, res) => {
    }
 });
 
-// register
 app.post('/register', (req, res) => {
-   // console.log('레지스터');
-   // console.log(req);
-   // console.log(req.body);
    const { id, pw } = req.body;
    if (id == '') {
       res.redirect('register.html');
@@ -73,8 +69,8 @@ app.post('/register', (req, res) => {
          let template = makeResultTemplate(`
          <div>
             <h3 style="margin-left: 30px">Registrer Failed</h3>
-            <h4 style="margin-left: 30px">이미 존재하는 아이디입니다.</h4>
-            <a href="register.html" style="margin-left: 30px">다시 시도하기</a>
+            <h4 style="margin-left: 30px">Already Exist ID.</h4>
+            <a href="register.html" style="margin-left: 30px">Try Again</a>
          </div>`);
          res.end(template);
       } else {
@@ -85,10 +81,7 @@ app.post('/register', (req, res) => {
    }
 });
 
-// request O, query X
 app.get('/select', (req, res) => {
-   // console.log('리퀘스트');
-   // console.log(req);
    const result = connection.query('select * from user;');
    console.log(result);
    res.writeHead(200);
@@ -112,7 +105,6 @@ app.get('/select', (req, res) => {
    res.end(resultPage);
 });
 
-// request O, query O
 app.get('/selectQuery', (req, res) => {
    const userid = req.query.userid;
 
@@ -121,10 +113,9 @@ app.get('/selectQuery', (req, res) => {
    res.writeHead(200);
    let resultPage = ``;
    if (userid == '') {
-      console.log('빈값');
       resultPage = makeResultTemplate(`
          <div class="empty">
-            USERID를 입력해서 검색해주세요.
+            Type Proper 'USERID'
          </div>
       `);
    } else if (result.length > 0) {
@@ -149,22 +140,19 @@ app.get('/selectQuery', (req, res) => {
    } else {
       resultPage = makeResultTemplate(`
          <div class="empty">
-         아무 데이터가 존재하지 않습니다.
+            Any Data Doesn't Exist.
          </div> `);
    }
    res.end(resultPage);
 });
 
-// request O, query O
 app.post('/selectQuery', (req, res) => {
    const id = req.body.id;
-   // console.log(req.body);
    const result = connection.query('select * from user where userid=?', [id]);
    console.log(result);
    res.send(result);
 });
 
-// request O, query O
 app.post('/insert', (req, res) => {
    const { userid, pw } = req.body;
    const result = connection.query('insert into user values (?, ?)', [userid, pw]);
@@ -172,7 +160,6 @@ app.post('/insert', (req, res) => {
    res.redirect('/selectQuery?userid=' + req.body.userid);
 });
 
-// request O, query O
 app.post('/update', (req, res) => {
    const { userid, pw } = req.body;
    const result = connection.query('update user set passwd=? where userid=?', [pw, userid]);
