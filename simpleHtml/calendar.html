@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <title>while 문</title>
+      <style>
+         h1,
+         h2 {
+            text-align: center;
+         }
+         table {
+            width: 400px;
+            text-align: right;
+            border: 1px solid #444444;
+            border-collapse: collapse;
+            margin: auto;
+         }
+         th {
+            background-color: rgba(114, 111, 119, 0.801);
+         }
+         th,
+         td {
+            font-weight: 700;
+            width: 50px;
+            height: 10px;
+            padding: 5px;
+         }
+      </style>
+   </head>
+   <body>
+      <h1>Calendar</h1>
+      <hr />
+
+      <h2><span id="calYear"></span>년 <span id="calMonth"></span>월</h2>
+      <table border="1">
+         <thead>
+            <tr>
+               <th style="color: red">SUN</th>
+               <th>MON</th>
+               <th>TUE</th>
+               <th>WED</th>
+               <th>THU</th>
+               <th>FRI</th>
+               <th style="color: blue">SAT</th>
+            </tr>
+         </thead>
+         <tbody></tbody>
+      </table>
+      <script>
+         let inputDate = prompt('연,월을 입력해 주세요. ex) 202304');
+         let year = inputDate.slice(0, 4),
+            month = inputDate.slice(4, 6);
+         let firstDay = new Date(year, month - 1, 1).getDay();
+         let lastDate = new Date(year, month, 0).getDate();
+         document.querySelector('#calYear').innerHTML = year;
+         document.querySelector('#calMonth').innerHTML = month;
+         let today = new Date().getDate();
+         console.log(firstDay, lastDate);
+         let lineCount = 1;
+         let tBody = document.querySelector('tbody');
+         let temp = '<tr>';
+         for (let i = 1; i <= firstDay; i++) {
+            temp += '<td></td>';
+            lineCount++;
+         }
+         for (let i = 1; i <= lastDate; i++) {
+            if (i == today) {
+               temp += '<td style="background-color:#FFC0CB;">' + i + '</td>';
+            } else {
+               temp += '<td>' + i + '</td>';
+            }
+
+            if (lineCount % 7 == 0) {
+               temp += '</tr><tr>';
+            }
+            lineCount++;
+         }
+         temp += '</tr>';
+         document.querySelector('tbody').innerHTML = temp;
+      </script>
+   </body>
+</html>
