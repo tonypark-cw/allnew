@@ -10,18 +10,18 @@
       <script>
          while (1) {
             let rsp_map = { 1: '가위', 2: '바위', 3: '보' };
-            let x = Math.floor(Math.random() * 2 + 1);
-            let n = parseInt(prompt('가위(1) 바위(2) 보(3)!', 3));
-            if (n == 1 || n == 2 || n == 3) {
-               document.write('컴퓨터 : ' + rsp_map[x]);
-               document.write('<br /><br /> YOU : ' + rsp_map[n]);
+            let computer = (Math.floor(Math.random() * (333 - 1) + 1) % 3) + 1;
+            let user = parseInt(prompt('가위(1) 바위(2) 보(3)!', 1));
+            if (user == 1 || user == 2 || user == 3) {
+               document.write('컴퓨터 : ' + rsp_map[computer]);
+               document.write('<br /><br /> YOU : ' + rsp_map[user]);
                document.write('<br /><br />');
-               if (n == x) {
+               if (user == computer) {
                   document.write('무승부쓰~');
-               } else if ((n + x) % 2 == 1) {
-                  n > x ? document.write('이겼쓰~ 뺌') : document.write('졌쓰~');
-               } else if ((n + x) % 2 == 0) {
-                  n < x ? document.write('이겼쓰~ 뺌') : document.write('졌쓰~');
+               } else if ((user + computer) % 2 == 1) {
+                  user > computer ? document.write('이겼쓰~ 뺌') : document.write('졌쓰~');
+               } else if ((user + computer) % 2 == 0) {
+                  user < computer ? document.write('이겼쓰~ 뺌') : document.write('졌쓰~');
                }
                break;
             } else {

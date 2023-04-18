@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="kr">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Quiz#6</title>
+   </head>
+   <body>
+      <script>
+         let start = new Date('2023-03-06:09:00:00');
+         let current = new Date();
+         let diff = current - start;
+         document.write('기준 시간 : ', start.toString(), '<br>');
+         document.write('현재 시간 : ', current.toString(), '<br>');
+         document.write('경과 시간 : ', diff / 3600000, '시간, <br>');
+         document.write(diff / (1000 * 60 * 60 * 24 * 30), '개월, <br>');
+         document.write(Math.round(diff / (1000 * 60 * 60 * 24)), '일, <br>');
+         document.write(Math.round(diff / (1000 * 60 * 60)), '시간, <br>');
+         document.write(Math.round(diff / (1000 * 60)), '분, <br>');
+         document.write(diff / 1000, '초 경과<br>');
+      </script>
+   </body>
+</html>

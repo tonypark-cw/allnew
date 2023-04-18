@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>CAR</title>
+      <script>
+         function Car(brand, grade, maxFuel, displacement, price) {
+            this.brand = brand;
+            this.grade = grade;
+            this.maxFuel = maxFuel;
+            this.displacement = displacement;
+            this.price = price;
+            this.currentFuel = this.maxFuel;
+            this.from = '';
+            this.to = '';
+            this.distance = 0;
+
+            this.drive = function (from, to, distance) {
+               this.from = from;
+               this.to = to;
+               this.distance = distance;
+               this.currentFuel -= distance;
+               document.write(
+                  this.brand,
+                  ' 차량이 ',
+                  this.from,
+                  '에서 ',
+                  this.to,
+                  '까지 ',
+                  this.distance,
+                  'KM를 이동하였습니다.<br/> 잔여 연료량은 ' + this.currentFuel + 'L 입니다.<br><hr />',
+               );
+
+               return this.currentFuel;
+            };
+            this.fuelUp = function (amount) {
+               this.currentFuel += amount;
+               document.write(
+                  this.brand,
+                  ' 차량이 연료를 ',
+                  amount,
+                  'L 충전하였습니다.<br/>',
+                  ' 잔여 연료량이 ' + this.currentFuel + 'L가 되었습니다.<br><hr />',
+               );
+               return this.currentFuel;
+            };
+
+            this.info = function () {
+               console.log(this);
+               document.write('CAR : ' + '<br>');
+               document.write('브랜드 : ' + this.brand + '<br>');
+               document.write('등급 : ' + this.grade + '<br>');
+               document.write('최대연료량 : ' + this.maxFuel + '<br>');
+               document.write('배기량 : ' + this.displacement + 'CC <br>');
+               document.write('가격 : ' + this.price + '만원 <br>');
+               document.write('<hr />');
+            };
+         }
+      </script>
+   </head>
+   <body>
+      <script>
+         document.write('<h2>프로토타입으로 Car 객체 만들기</h2><hr>');
+         let bmw = new Car('BMW', 'SUV', 900, 2000, 14000);
+         bmw.info();
+         bmw.drive('서울', '부산', 350);
+         bmw.drive('부산', '인천', 400);
+         bmw.fuelUp(500);
+
+         let benz = new Car('BENZ', 'SEDAN', 400, 4000, 21000);
+         benz.info();
+         benz.drive('서울', '대전', 300);
+         benz.fuelUp(200);
+         benz.drive('대전', '서울', 300);
+
+         //  document.write('CAR : ' + '<br>');
+         //  document.write('브랜드 : ' + benz.brand + '<br>');
+         //  document.write('등급 : ' + benz.grade + '<br>');
+         //  document.write('최대연료량 : ' + benz.maxFuel + '<br>');
+         //  document.write('배기량 : ' + benz.displacement + 'CC <br>');
+         //  document.write('가격 : ' + benz.price + '원 <br>');
+         //  document.write('<hr />');
+         //  document.write('현재 전체 연료량 ' + benz.currentFuel + ' , 남은 거리 ' + benz.distance + '<br><hr />');
+         //  benz.drive('서울', '부산', 350);
+         //  benz.fuelUp(230);
+         //  document.write('CAR : ' + '<br>');
+         //  document.write('브랜드 : ' + benz.brand + '<br>');
+         //  document.write('등급 : ' + benz.grade + '<br>');
+         //  document.write('최대연료량 : ' + benz.maxFuel + '<br>');
+         //  document.write('배기량 : ' + benz.displacement + 'CC <br>');
+         //  document.write('가격 : ' + benz.price + '원 <br>');
+         //  document.write('<hr />');
+         //  document.write('현재 전체 연료량 ' + benz.currentFuel + ' , 남은 거리 ' + benz.distance + '<br><hr />');
+         console.log(this);
+      </script>
+   </body>
+</html>
