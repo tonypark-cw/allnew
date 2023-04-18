@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Order</title>
+      <script>
+         function Music(title, artist, songLength) {
+            this.title = title;
+            this.artist = artist;
+            this.songLength = songLength;
+            this.playPoint = 0;
+            this.starRate = 0;
+            this.starCount = 0;
+            this.starScore = 0;
+
+            this.info = function () {
+               console.log(this);
+               document.write('제목 : ' + this.title + '<br>');
+               document.write('가수 : ' + this.artist + '<br>');
+               document.write('길이 : ' + this.songLength + ' <br>');
+               document.write('재생수 : ' + this.playPoint + '회 <br>');
+               document.write('평점 : ' + this.starRate + '점 <br>');
+               document.write('<hr />');
+            };
+
+            this.play = function () {
+               this.playPoint++;
+               return this.info();
+            };
+
+            this.bookmark = function (rate) {
+               this.starCount++;
+               this.starScore += rate;
+               this.starRate = this.starScore / this.starCount;
+               return this.info();
+            };
+         }
+      </script>
+   </head>
+   <body>
+      <script>
+         document.write('<h2>프로토타입으로 Music 객체 만들기</h2><hr>');
+         document.write('음악 ' + '<br><hr>');
+         let music = new Music('금요일에 만나요', '아이유', '3:41');
+         music.info();
+         music.play();
+         music.bookmark(5);
+         music.play();
+         music.bookmark(4);
+         music.bookmark(4);
+         music.bookmark(4);
+         music.bookmark(4);
+         music.bookmark(4);
+         music.bookmark(4);
+         music.bookmark(4);
+         music.bookmark(4);
+         music.bookmark(4);
+         music.bookmark(4);
+         music.bookmark(5);
+      </script>
+   </body>
+</html>
