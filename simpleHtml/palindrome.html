@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <title>기러기토마토스위스</title>
+      <script>
+         function findChecked() {
+            let found = null;
+            let p_type = document.getElementsByName('type');
+
+            for (let i = 0; i < p_type.length; i++) {
+               if (p_type[i].checked == true) found = p_type[i];
+            }
+            let val = document.getElementsByName('inputVal')[0].value;
+            if (found.value == 'text') {
+               val[0] == val[2]
+                  ? alert('문자 ' + val + '은 팰린드롬이 맞아유')
+                  : alert('문자 ' + val + '은 팰린드롬이 아니유');
+            } else if (found.value == 'number') {
+               val[0] == val[2]
+                  ? alert('숫자 ' + val + '은 팰린드롬이 맞아유')
+                  : alert('숫자 ' + val + '은 팰린드롬이 아니유');
+            }
+         }
+      </script>
+   </head>
+   <body>
+      <h2>3자리만 입력하는 거시다~</h2>
+      <h3>기러기토마토스위스 같은 팰린드롬을 찾아보자</h3>
+      <hr />
+      <form>
+         <input type="text" name="inputVal" />
+         <input type="radio" name="type" value="text" checked />TEXT
+         <input type="radio" name="type" value="number" />NUMBER
+         <input type="button" value="find checked" onclick="findChecked()" />
+      </form>
+   </body>
+</html>

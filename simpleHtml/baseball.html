@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <script>
+         let s_result = new Set();
+         let msg = '';
+         let count = 0;
+         while (s_result.size < 3) {
+            s_result.add(Math.floor(Math.random() * (9 - 0) + 0));
+         }
+         function pitching() {
+            let strike = 0;
+            let ball = 0;
+            let out = 0;
+            const outcome = document.getElementById('outcome');
+            const userInput = document.getElementsByName('mynum')[0].value;
+            console.log(userInput);
+            // console.log(guess);
+            for (let i = 0; i < userInput.length; i++) {
+               if (userInput[i] == guess[i]) strike++;
+               else if (guess.includes(userInput[i])) ball++;
+            }
+            count++;
+            if (strike >= 3) {
+               msg = '승리!';
+               l_page.innerHTML = '컴퓨터 : ' + guess;
+            } else if (strike == 0 && ball == 0) msg = 'OUT';
+            else msg = strike + 'S ' + ball + 'B';
+
+            outcome.innerHTML += count + '차시도&nbsp;&nbsp;&nbsp;' + userInput + '&nbsp;&nbsp;&nbsp;' + msg + '<br>';
+         }
+      </script>
+   </head>
+   <body>
+      신나는 야구 게임
+      <div id="page"></div>
+      <div>
+         <input type="number" name="mynum" />
+         <button id="enterBtn" onclick="pitching()">입력</button>
+      </div>
+      <span id="outcome"></span>
+      <script>
+         const btn = document.getElementById('enterBtn');
+         const l_page = document.getElementById('page');
+         let res = document.createElement('p');
+
+         let guess = [...s_result].join('');
+         res.innerHTML = '컴퓨터 : XXX';
+
+         l_page.appendChild(res);
+      </script>
+   </body>
+</html>
