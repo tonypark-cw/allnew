@@ -4,6 +4,11 @@
       <meta charset="utf-8" />
       <title>About Me</title>
       <link type="text/css" rel="stylesheet" href="css/mystyle.css" />
+      <script>
+         if (sessionStorage.getItem('userid').length <= 0) {
+            document.location.href = './login.html';
+         }
+      </script>
    </head>
    <body>
       <hr />
@@ -16,16 +21,27 @@
             <li overflow:hidden;></li>
             <li overflow:hidden;></li>
             <li overflow:hidden;></li>
-            <li><a href="index.html">Logout</a></li>
+            <li><a id="logout" href="index.html">Logout</a></li>
          </ul>
       </nav>
       <hr />
       <br />
-      <p style="font-size: 2em">
+      <p id="whoami" style="font-size: 2em">
          <br />
          <b>WHO AM I?</b>
       </p>
       <br />
       <hr />
+      <script>
+         let user = sessionStorage.getItem('userid');
+         const div = document.getElementsByClassName('blur');
+         const p = document.getElementById('whoami');
+         div[0].innerHTML += '<p style="color:orange;">' + user + '의 페이지 입니다.</p>';
+         p.innerHTML += 'I AM ' + user;
+         let logout = document.getElementById('logout');
+         logout.addEventListener('click', () => {
+            sessionStorage.setItem('userid', '');
+         });
+      </script>
    </body>
 </html>

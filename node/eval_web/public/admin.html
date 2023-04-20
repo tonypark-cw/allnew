@@ -4,6 +4,14 @@
       <meta charset="utf-8" />
       <title>User Authentication</title>
       <link type="text/css" rel="stylesheet" href="css/mystyle.css" />
+      <script>
+         let userInfo = sessionStorage.getItem('userInfo');
+         let userid = sessionStorage.getItem('userid');
+         console.log(userInfo);
+         if (userInfo) {
+            document.location.href = './login.html';
+         }
+      </script>
    </head>
    <body>
       <hr />
@@ -16,7 +24,7 @@
             <li overflow:hidden;></li>
             <li overflow:hidden;></li>
             <li overflow:hidden;></li>
-            <li><a href="index.html">Logout</a></li>
+            <li><a id="logout" href="index.html">Logout</a></li>
          </ul>
       </nav>
       <hr />
@@ -40,5 +48,14 @@
       <iframe src="" name="targetURL" scrolling="no" height="300px" frameborder="0"></iframe>
       <hr />
       <footer class="img"></footer>
+      <script>
+         let user = sessionStorage.getItem('userid');
+         const div = document.getElementsByClassName('blur');
+         div[0].innerHTML += '<p style="color:orange;">' + user + '의 페이지 입니다.</p>';
+         let logout = document.getElementById('logout');
+         logout.addEventListener('click', () => {
+            sessionStorage.setItem('userid', '');
+         });
+      </script>
    </body>
 </html>

@@ -50,10 +50,10 @@ app.post('/login', (req, res) => {
       res.redirect('error.html');
    }
    if (id == 'admin' || id == 'root') {
-      console.log(id + ' => Administrator Logined');
+      console.log(id + ' => Administrator Log-in');
       res.redirect('admin.html');
    } else {
-      console.log(id + ' => User Logined');
+      console.log(id + ' => User Log-in');
       res.redirect('user.html');
    }
 });

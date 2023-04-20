@@ -2,37 +2,54 @@
 <html>
    <head>
       <meta charset="UTF-8" />
-      <title>기러기토마토스위스</title>
+      <title>palindrome</title>
       <script>
          function findChecked() {
-            let found = null;
-            let p_type = document.getElementsByName('type');
+            let input = document.getElementById('userInput');
+            let radio = document.getElementsByName('type');
+            let div = document.getElementById('div');
+            let radioType = '';
+            let value = '';
 
-            for (let i = 0; i < p_type.length; i++) {
-               if (p_type[i].checked == true) found = p_type[i];
+            for (let i = 0; i < radio.length; i++) {
+               if (radio[i].checked == true) {
+                  radioType = radio[i].value;
+                  // console.log(radioType);
+               }
             }
-            let val = document.getElementsByName('inputVal')[0].value;
-            if (found.value == 'text') {
-               val[0] == val[2]
-                  ? alert('문자 ' + val + '은 팰린드롬이 맞아유')
-                  : alert('문자 ' + val + '은 팰린드롬이 아니유');
-            } else if (found.value == 'number') {
-               val[0] == val[2]
-                  ? alert('숫자 ' + val + '은 팰린드롬이 맞아유')
-                  : alert('숫자 ' + val + '은 팰린드롬이 아니유');
+
+            if (parseInt(input.value) > 0) {
+               value = parseInt(input.value);
+            } else {
+               value = input.value;
+            }
+            // console.log(typeof value);
+            if (radioType == 'string' && 'string' == typeof value) {
+               if (value[0] == value[2]) {
+                  div.innerHTML = '문자 펠린드롬 입니다.';
+               } else {
+                  div.innerHTML = '문자 펠린드롬이 아닙니다.';
+               }
+            } else if (radioType == 'number' && 'number' == typeof value) {
+               if (value % 10 == Math.floor(value / 100)) {
+                  div.innerHTML = '슷자 펠린드롬 입니다.';
+               } else {
+                  div.innerHTML = '숫자 펠린드롬이 아닙니다.';
+               }
+            } else {
+               div.innerHTML = '문자 입력칸에 숫자를, 숫자입력칸에 문자를 넣으셨습니다.';
             }
          }
       </script>
    </head>
    <body>
-      <h2>3자리만 입력하는 거시다~</h2>
-      <h3>기러기토마토스위스 같은 팰린드롬을 찾아보자</h3>
-      <hr />
+      <h3>팰린드롬을 찾아 보아요</h3>
       <form>
-         <input type="text" name="inputVal" />
-         <input type="radio" name="type" value="text" checked />TEXT
-         <input type="radio" name="type" value="number" />NUMBER
-         <input type="button" value="find checked" onclick="findChecked()" />
+         <input type="radio" name="type" value="string" />문자
+         <input type="radio" name="type" value="number" />숫자<br />
+         <input type="text" id="userInput" />
+         <input type="button" value="펠린드롬검사기" onclick="findChecked()" />
       </form>
+      <div id="div"></div>
    </body>
 </html>

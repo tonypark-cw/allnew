@@ -4,10 +4,17 @@
       <meta charset="UTF-8" />
       <title>User page</title>
       <link type="text/css" rel="stylesheet" href="css/mystyle.css" />
+      <script>
+         console.log('체크해보자');
+         if (sessionStorage.getItem('userid').length <= 0) {
+            console.log('아이구');
+            document.location.href = './login.html';
+         }
+      </script>
    </head>
    <body>
       <hr />
-      <div class="blur"><h3>User Page</h3></div>
+      <div class="blur"><h3>User's Page</h3></div>
       <hr />
       <nav id="menubar">
          <ul>
@@ -16,7 +23,7 @@
             <li overflow:hidden;></li>
             <li overflow:hidden;></li>
             <li overflow:hidden;></li>
-            <li><a href="index.html">Logout</a></li>
+            <li><a id="logout" href="index.html">Logout</a></li>
          </ul>
       </nav>
       <hr />
@@ -25,5 +32,15 @@
       </div>
       <hr />
       <footer class="img"></footer>
+      <script>
+         let user = sessionStorage.getItem('userid');
+         const div = document.getElementsByClassName('blur');
+         div[0].innerHTML += '<p style="color:orange;">' + user + '의 페이지 입니다.</p>';
+
+         let logout = document.getElementById('logout');
+         logout.addEventListener('click', () => {
+            sessionStorage.setItem('userid', '');
+         });
+      </script>
    </body>
 </html>
