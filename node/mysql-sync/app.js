@@ -2,35 +2,51 @@ let mysql = require('sync-mysql');
 
 const env = require('dotenv').config({ path: './../../.env' });
 
-let connection = mysql.createConnection({
-   host: process.env.MYSQL_HOST,
-   user: process.env.MYSQL_USER,
-
-   password: process.env.MYSQL_PASSWD,
-   database: process.env.MYSQL_DATABASE,
+let conn = new mysql({
+   host: process.env.host,
+   user: process.env.user,
+   password: process.env.password,
+   database: process.env.database,
 });
 
-connection.connect(function (err) {
-   if (!err) {
-      console.log('DB is Connected\n');
-   } else {
-      console.log(err);
-      console.log('Error Occured : Cannot connect to DB\n');
-   }
-});
+let result = conn.query('select * from st_info;');
+console.log(result);
 
-app.get('/', function (req, res) {
-   connection.query('select * from st_info', function (err, rows, fields) {
-      connection.end();
-      if (!err) {
-         res.send([rows]);
-         console.log('Result : ', rows);
-      } else {
-         console.log('Error Occured : Cannot get Responses.\n');
-      }
-   });
-});
+let data = {
+   st_id: '202399',
+   name: 'Park',
+   dept: 'Game',
+};
 
-app.listen(8000, function () {
-   console.log('8000 Port : Server Listening......\n');
-});
+let insertedId = data.st_id;
+//select
+result = conn.query('select * from st_info;');
+console.log(result);
+
+//delete
+result = conn.query('delete from st_info where st_id = ?;', [insertedId]);
+console.log(result);
+
+//select
+result = conn.query('select * from st_info;');
+console.log(result);
+
+//insert;
+result = conn.query('insert into st_info values (?,?,?);', [data.st_id, data.name, data.dept]);
+console.log(result);
+
+//select
+result = conn.query('select * from st_info;');
+console.log(result);
+
+//update
+result = conn.query('update st_info set dept = ? where st_id = ?;', ['Game', insertedId]);
+console.log(result);
+
+//select
+result = conn.query('select * from st_info;');
+console.log(result);
+
+//select query
+result = conn.query('select * from st_info where st_id = ?;', [insertedId]);
+console.log(result);

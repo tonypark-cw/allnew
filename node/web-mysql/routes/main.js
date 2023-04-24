@@ -65,7 +65,7 @@ app.get('/insert', (req, res) => {
    const { ST_ID, NAME, DEPT } = req.query;
    const result = connection.query('INSERT INTO st_info values (?, ?, ?)', [ST_ID, NAME, DEPT]);
 
-   urls = 'http://192.168.1.9:8000/select/';
+   urls = 'http://192.168.1.15:8000/select/';
    request(urls, { json: true }, (err, result, body) => {
       if (err) {
          return console.log(err);
@@ -79,7 +79,7 @@ app.get('/update', (req, res) => {
    const { ST_ID, NAME, DEPT } = req.query;
    const result = connection.query('UPDATE st_info SET NAME=?, DEPT=? WHERE ST_ID=?', [NAME, DEPT, ST_ID]);
 
-   urls = 'http://192.168.1.9:8000/select/';
+   urls = 'http://192.168.1.15:8000/select/';
    request(urls, { json: true }, (err, result, body) => {
       if (err) {
          return console.log(err);
@@ -93,7 +93,7 @@ app.get('/delete', (req, res) => {
    const ST_ID = req.query.ST_ID;
    result = connection.query('DELETE FROM st_info WHERE ST_ID=?', [ST_ID]);
 
-   urls = 'http://192.168.1.9:8000/select/';
+   urls = 'http://192.168.1.15:8000/select/';
    request(urls, { json: true }, (err, result, body) => {
       if (err) {
          return console.log(err);
