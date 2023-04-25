@@ -3,8 +3,6 @@ const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const router = express.Router();
-const env = require('dotenv').config({ path: '../../.env' });
 
 const app = express();
 
@@ -15,8 +13,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-let main = require('./routes/main.js');
+var main = require('./routes/main.js');
 app.use('/', main);
+
 app.listen(app.get('port'), () => {
    console.log('8000 Port : Server Started...');
 });
