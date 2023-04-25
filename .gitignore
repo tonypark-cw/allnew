@@ -50,3 +50,4 @@ html/**/node_modules
 
 html/**/media/
 
+project/**/node_modules
