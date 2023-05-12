@@ -1,0 +1,298 @@
+Day-43
+
+# pip install numpy
+
+# pip install —upgrade pip
+
+
+## p105_makeArray.py
+
+import numpy as np
+
+print(np.zeros(3))
+
+arrZeros = np.zeros((2,  2))
+print(arrZeros)
+
+array2 = np.ones((3, 2))
+print(array2)
+
+
+
+
+## p110_numpyEx02.py
+
+import numpy as np
+
+a = np.array([-1, 3, 2, -6])
+b = np.array([3, 6, 1, 2])
+A = np.reshape(a, [2, 2])
+B = np.reshape(b, [2, 2])
+print("\nsol1")
+print(A)
+print("\nsol2")
+print(B)
+
+result3_1 = np.matmul(A, B)
+result3_2 = np.matmul(B, A)
+print("\nsol3-1")
+print(result3_1)
+print("\nsol3-2")
+print(result3_2)
+
+a = np.reshape(a, [1, 4])
+b = np.reshape(b, [1, 4])
+b2 = np.transpose(b)
+print("\nsol4-1")
+print(b2)
+
+result4 = np.matmul(a, b2)
+print("\nsol4-2")
+print(result4)
+
+
+
+## p112_arrayManipulation.py
+
+import numpy as np
+
+print('\nnp.repeat function')
+su1 = 2
+rep_cnt1 = 5
+result = np.repeat(su1, rep_cnt1)
+print(type(result))
+print(result)
+
+array1 = np.array([1, 2])
+array2 = np.array([3, 4])
+print('\narray1')
+print(array1)
+print('\narray2')
+print(array2)
+
+print('\nnp.concatenate function')
+result = np.concatenate((array1, array2))
+print(result)
+
+su2 = 3
+rep_cnt2 = 4
+print('\nfunction repeat')
+abcd = np.repeat(su1, rep_cnt1)
+defg = np.repeat(su2, rep_cnt2)
+result = np.concatenate((abcd, defg))
+print(result)
+
+array3 = np.array([1, 2, 3, 4, 5, 6])
+print('\nreshape function')
+
+print('2row 3col')
+result = np.reshape(array3, [2, 3])
+print(result)
+
+print('3row 2col')
+result = np.reshape(array3, [3, 2])
+print(result)
+
+array4 = np.array([[3, 6, 2], [4, 1, 5]])
+print('\narray4')
+print(array4)
+
+print('\ntransposed array')
+result = np.transpose(array4)
+print(result)
+
+
+### p117_universal_function.py
+
+import numpy as np
+
+array = np.array([1.57, 2.48, 3.93, 4.33])
+print('\narray print')
+print(array)
+
+print('\nnp.ceil() function')
+result = np.ceil(array)
+print(result)
+
+print('\nnp.floor() function')
+result = np.floor(array)
+print(result)
+
+print('\nnp.round() function')
+result = np.round(array)
+print(result)
+
+print('\n1 decimal place round')
+result = np.round(array, 1)
+print(result)
+
+print('\nsqrt() function')
+result = np.sqrt(array)
+print(result)
+
+arr = np.arange(10)
+print(arr)
+print()
+
+print('\nexp() function')
+result = np.exp(arr)
+print(result)
+
+x = [5, 4]
+y = [6, 3]
+
+print('\nnp.maximum(x, y')
+result = np.maximum(x, y)
+print(result)
+
+print('-' * 30)
+
+array1 = np.array([-1.1, 2.2, 3.3, 4.4])
+print('\narray1')
+print(array1)
+
+array2 = np.array([1.1, 2.2, 3.3, 4.4])
+print('\narray2')
+print(array2)
+
+print('\nabs() function')
+result = np.abs(array1)
+print(result)
+
+print('\nsum() function')
+result = np.sum(array1)
+print(result)
+
+print('\ncompare')
+result = np.equal(array1, array2)
+print(result)
+
+print('\nnp.sum() and np.equal')
+print('\nTure is 1, False is 0 counting.')
+result = np.sum(np.equal(array1, array2))
+print(result)
+
+print('\naverage')
+result = np.mean(array2)
+print(result)
+
+arrX = np.array([[1, 2], [3, 4]], dtype=np.float64)
+arrY = np.array([[5, 6], [7, 8]], dtype=np.float64)
+
+print('\nadd of element by element')
+print(arrX + arrY)
+print(np.add(arrX, arrY))
+
+print('\nsub of element by element')
+print(arrX - arrY)
+print(np.subtract(arrX, arrY))
+
+print('\nmul of element by element')
+print(arrX * arrY)
+print(np.multiply(arrX, arrY))
+
+print('\ndiv of element by element')
+print(arrX / arrY)
+print(np.divide(arrX, arrY))
+
+print('\nsqrt of element by element')
+print(np.sqrt(arrX))
+
+
+# pip install pandas
+
+## p123_makeSeries.py
+
+from pandas import Series
+import numpy as np
+
+mylist = [10, 40, 30]
+myindex = ['김유신', '이순신', '강감찬']
+
+print('\n#Cast 01')
+myseries = Series(mylist)
+print(myseries)
+
+print('\n#Cast 02')
+myseries = Series(data=mylist)
+print(myseries)
+
+print('\n#Cast 03')
+myseries = Series(data=mylist, index=myindex)
+print(myseries)
+
+print('\n#Cast 04')
+myseries = Series(data=mylist, index=myindex, dtype=float)
+print(myseries)
+
+
+## p127_SeriesTest01.py
+
+from pandas import Series
+
+mylist = [10, 40, 30, 20]
+myseries = Series(data=mylist, index= ['김유신', '이순신', '강감찬', '광해군'])
+
+print('\nData Type')
+print(type(myseries))
+
+myseries.index.name = '점수'
+print('\nindex name of series')
+print(myseries.index.name)
+
+myseries.name = '학생들 시험'
+print('\nname of series')
+print(myseries.name)
+
+print('\nname of index')
+print(myseries.index)
+
+print('\nvalue of series')
+print(myseries.values)
+
+print('\nprint information of series')
+print(myseries)
+
+print('\nrepeat print')
+for idx in myseries.index:
+    print('Index : ' + idx + ', Values : ' + str(myseries[idx]))
+
+
+## p132_seriesReadWrite10.py
+
+from pandas import Series
+
+myindex = ['용산구', '마포구', '영등포구', '서대문구', '광진구', '은평구','서초구']
+mylist = [50, 60 , 40, 80, 70, 30, 20]
+myseries = Series(data=mylist, index=myindex)
+print(myseries)
+
+print('\nread value')
+print(myseries[['서대문구']])
+
+print('\nslicing label name')
+print(myseries['서대문구':'은평구'])
+
+print('\ndata read')
+print(myseries[['서대문구','서초구']])
+
+print('\nread index')
+print(myseries[[2]])
+
+print('\nread index 0, 2, 4')
+print(myseries[0:5:2])
+
+print('\nread index 1, 3, 5')
+print(myseries[[1, 3, 5]])
+
+print('\nslicing')
+print(myseries[3:6])
+
+myseries[2] = 90
+myseries[2:5] = 33
+myseries[['용산구', '서대문구']] = 55
+myseries[0::2] = 80
+print('\nSeries list')
+print(myseries)
+
+
