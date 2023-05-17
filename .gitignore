@@ -52,4 +52,4 @@ html/**/media/
 
 node/**/project
 
-python/**/pythonDBProcess/secret.json
+python/**/secret.json

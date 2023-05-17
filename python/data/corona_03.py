@@ -45,18 +45,13 @@ print(type(dictionary))
 print(dictionary)
 print('-'*50)
 
-items = dictionary['items']
+items = dictionary['items'][0]
 print(type(items))
 print(items)
 print('-'*50)
 
-df = pd.DataFrame(items).rename(index={0:'result'}).T
+#dict key to row
+df = pd.DataFrame.from_dict(items, orient='index').rename(columns={0:'result'})
 print(type(df))
 print(df)
 print('-'*50)
-
-data = df.loc[['gPntCnt','hPntCnt','accExamCnt','statusDt']]
-print(type(data))
-print(data)
-print('-'*50)
-

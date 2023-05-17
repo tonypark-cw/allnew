@@ -45,18 +45,25 @@ print(type(dictionary))
 print(dictionary)
 print('-'*50)
 
-items = dictionary['items']
+items = dictionary['items'][0]
 print(type(items))
 print(items)
 print('-'*50)
 
-df = pd.DataFrame(items).rename(index={0:'result'}).T
+item = ['gPntCnt','hPntCnt','accExamCnt','statusDt']
+validItems = dict({(k, v) for (k, v) in items.items() if k in item})
+# validItems = dict({(k, v) for (k, v) in items.fromkeys(item).items()})
+print(items.fromkeys(item))
+print(type(validItems))
+print(validItems)
+# print('-'*50)
+
+validItem = {}
+for _ in item:
+    validItem[_] = items[_]
+print(validItem)
+
+df = pd.DataFrame.from_dict(validItem, orient='index').rename(columns={0:'result'})
 print(type(df))
 print(df)
 print('-'*50)
-
-data = df.loc[['gPntCnt','hPntCnt','accExamCnt','statusDt']]
-print(type(data))
-print(data)
-print('-'*50)
-

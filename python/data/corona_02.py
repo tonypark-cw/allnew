@@ -50,13 +50,17 @@ print(type(items))
 print(items)
 print('-'*50)
 
-df = pd.DataFrame(items).rename(index={0:'result'}).T
+items_dict = {key:value for key, value in enumerate(items)}
+print(type(items_dict))
+print(items_dict)
+print('-'*50)
+
+items = items_dict[0]
+print(type(items))
+print(items)
+print('-'*50)
+
+df = pd.DataFrame(items, index=[0]).rename(index={0:'result'}).T
 print(type(df))
 print(df)
 print('-'*50)
-
-data = df.loc[['gPntCnt','hPntCnt','accExamCnt','statusDt']]
-print(type(data))
-print(data)
-print('-'*50)
-
