@@ -1,22 +1,21 @@
 from pandas import Series
 
-print('\nUnique, count, isin')
-mylist = ['라일락', '코스모스', '코스모스', '백일홍', '코스모스', '코스모스', '들장미', '들장미', '라일락', '라일락']
+print('\nUniuqe, count, isin')
+mylist = ['라일락', '코스모스', '코스모스', '백일홍', '코스모스', '코스모스', '들장미', '들장미', '라일락', '제비꽃', '라일락']
 myseries = Series(mylist)
 
-print('\nunique()')
-myunique = myseries.unique()
-print(myunique)
+print('\nUnique()')
+print(myseries.unique())
+print('-'*50)
 
-print('\nvalue_count()')
-print(myseries.value_counts())
+print('\nCount()')
+print(myseries.count())
+print('-'*50)
 
-print('\nisin()')
-mask = myseries.isin(['들장미', '라일락'])
-print(mask)
-print('-' * 50)
+print('\nisIn()')
+print(myseries.isin(['코스모스','라일락']))
+print('-'*50)
 
-print(myseries[mask])
-print('-' * 50)
-
-print('\nfinished')
+print('\nmask')
+print(myseries[myseries.isin(['코스모스','라일락'])])
+print('-'*50)

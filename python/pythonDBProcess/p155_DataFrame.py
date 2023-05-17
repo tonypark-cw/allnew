@@ -18,6 +18,7 @@ print(myframe.columns)
 myframe.index.name = 'Index1'
 print('\nIndex Information')
 print(myframe.index)
+
 print('\nInner data Information')
 print(type(myframe.values))
 print(myframe.values)
@@ -35,3 +36,5 @@ print('\ncolumns property usage')
 mycolumns = ['연도', '도시', '실적']
 newframe = DataFrame(sdata, columns=mycolumns)
 print(newframe)
+
+

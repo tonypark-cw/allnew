@@ -51,3 +51,5 @@ html/**/node_modules
 html/**/media/
 
 node/**/project
+
+python/**/pythonDBProcess/secret.json

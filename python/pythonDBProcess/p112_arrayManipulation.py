@@ -2,8 +2,8 @@ import numpy as np
 
 print('\nnp.repeat function')
 su1 = 2
-rep_cnt1 = 5
-result = np.repeat(su1, rep_cnt1)
+rep_cnt = 5
+result = np.repeat(su1, rep_cnt)
 print(type(result))
 print(result)
 
@@ -21,7 +21,7 @@ print(result)
 su2 = 3
 rep_cnt2 = 4
 print('\nfunction repeat')
-abcd = np.repeat(su1, rep_cnt1)
+abcd = np.repeat(su1, rep_cnt)
 defg = np.repeat(su2, rep_cnt2)
 result = np.concatenate((abcd, defg))
 print(result)
