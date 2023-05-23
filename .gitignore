@@ -55,4 +55,6 @@ node/**/project
 python/**/secret.json
 
 python/Closed_project/*.csv
+
 python/Open_project/*.csv
+python/Open_project/itemCode*
